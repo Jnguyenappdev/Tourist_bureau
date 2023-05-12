@@ -160,15 +160,27 @@ function getDetailsChanged() {
     const displayDetailsEl = document.getElementById("details");
   const displayDetailsElValue = displayDetailsEl.value;
 
-  let selectedValue;
+  let selectedName;
+  let selectedDescription;
+  let selectedLocation;
+  let selectedPrice;
   for (let i = 0; i < activities.length; i++) {
     if (displayDetailsElValue == activities[i].name) {
-      selectedValue = activities[i].name;
-
-      console.log(selectedValue);
+      selectedName = activities[i].name;
+      selectedDescription = activities[i].description
+      selectedLocation = activities [i].location
+      selectedPrice = activities[i].price
     }
   }
+  const messageEl1 = document.getElementById("activityName");
+  messageEl1.innerHTML = selectedName;
 
-  const messageEl = document.getElementById("activityName");
-  messageEl.innerHTML = selectedValue;
+  const messageEl2 = document.getElementById("activityDescription");
+  messageEl2.innerHTML = selectedDescription;
+
+  const messageEl3 = document.getElementById("location");
+  messageEl3.innerHTML = selectedLocation;
+
+  const messageEl4 = document.getElementById("price");
+  messageEl4.innerHTML = `$${selectedPrice.toFixed(2)}`;
 }
